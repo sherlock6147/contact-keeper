@@ -5,9 +5,6 @@
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
 }
-body{
-    width: 100vw;
-}
 .events-holder{
     padding: 1em 0px 0px;
 }
@@ -16,8 +13,9 @@ main{
 }
 .event-holder{
     background-color: hsl(207, 100%, 95%);
-    padding: 10px;
+    padding: 1em;
     border-radius: 5px;
+    margin: 0.5em 0px;
 }
 .event-holder h3{
     font-weight: 700;
@@ -25,13 +23,43 @@ main{
 }
 .event-holder .date-holder{
     display: flex;
-    width: 50%;
+    width: 80%;
     flex-direction: row;
     justify-content: center;
     align-items: baseline;
+    margin: 1em 0em;
 }
 .event-holder .date-holder h4{
     flex: 1;
     text-align: left;
     font-weight: 500;
+}
+@media screen and (min-width:500px) {
+    main{
+        margin: 0 20vw;
+    }    
+}
+.edit-link{
+    padding: 0.1em 0.5em;
+    background-color: hsl(207, 100%, 69%);
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 700;
+    color: hsl(207, 100%, 99%);
+    margin-top: 30px;
+}
+.current{
+    background-color: hsl(207, 100%, 85%);
+    padding: 1em;
+    border-radius: 5px;
+    margin: 0.5em 0px;
+}
+#current-tag{
+    background-color: indianred;
+    color: hsl(207, 100%, 99%);
+    font-weight: 600;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-left: 1ch;
 }

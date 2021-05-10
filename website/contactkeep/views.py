@@ -6,7 +6,10 @@ from .models import Event
 
 def home(request):
     current_event = Event.objects.filter(current=True)
-    current_event = current_event[0]
+    if current_event[0] != None:
+        current_event = current_event[0]
+    else:
+        current_event = "no event"
     context = {
         'event' : current_event,
     }
@@ -21,7 +24,23 @@ def events(request):
 
 def event_edit(request,event_id):
     event = get_object_or_404(Event,id=event_id)
+    if request.method == 'POST':
+        if 'event-edit' in request.POST:
+            event.name = request.POST.get('name')
+            if request.POST['start_date'] != '':
+                event.start_date = request.POST.get('start_date')
+            if request.POST['end_date'] != '':
+                event.end_date = request.POST.get('end_date')
+            if request.POST['current'] != '':
+                existing_current_event = Event.objects.filter(current=True)
+                if existing_current_event[0] != None: 
+                    existing_current_event = existing_current_event[0]
+                    existing_current_event.current = False
+                    existing_current_event.save()
+                event.current = True
+            event.save()
+            return HttpResponseRedirect('/events/')
     context = {
         'event' : event,
     }
-    return render(request,'contactkeep/edit.html',context)
+    return render(request,'contactkeep/event_edit.html',context)

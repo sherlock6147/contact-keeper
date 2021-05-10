@@ -14,13 +14,18 @@
         <h2>Events</h2>
         <section class="events-holder">
             {% for event in list_of_events %}
-                <section class="event-holder">
-                    <h3>{{event.name}}</h3>
+                {% if event.current == True %}
+                    <section class="event-holder current">
+                        <h3>{{event.name}}<span id="current-tag">Current</span></h3>
+                {% else %}
+                    <section class="event-holder">
+                        <h3>{{event.name}}</h3>
+                {% endif %}
                     <div class="date-holder">
                         <h4>Start Date : {{event.start_date}}</h4>
                         <h4>End Date : {{event.end_date}}</h4>
                     </div>
-                    <a href="{% url 'contactkeep:event_edit' event.id %}">Edit</a>
+                    <a href="{% url 'contactkeep:event_edit' event.id %}" class="edit-link">Edit</a>
                 </section>    
             {% endfor %}
         </section>
