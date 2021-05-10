@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | ContactKeep</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'contactkeep/home.css' %}">
+</head>
+{% include 'contactkeep/snippets/navigation.html' %}
+<body>
+    <section class="header">
+        <section id="event-card" class="card">
+            <h3>Selected Event:</h3>
+            <h2>{{event.name}}</h2>
+            <h3>Starts On:</h3>
+            <h2>{{event.start_date}}</h2>
+        </section>
+    </section>
+</body>
+{% include 'contactkeep/snippets/footer.html' %}
+</html>

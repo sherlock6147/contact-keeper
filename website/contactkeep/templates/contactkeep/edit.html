@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | ContactKeep</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'contactkeep/events.css' %}">
+</head>
+{% include 'contactkeep/snippets/navigation.html' %}
+<body>
+    <main>
+        <h2>Events</h2>
+        <section class="events-holder">
+                <section class="event-holder">
+                    <h3>{{event.name}}</h3>
+                    <div class="date-holder">
+                        <h4>Start Date : {{event.start_date}}</h4>
+                        <h4>End Date : {{event.end_date}}</h4>
+                    </div>
+        </section>
+    </main>
+</body>
+{% include 'contactkeep/snippets/footer.html' %}
+</html>

@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    width: 100vw;
+}
+.events-holder{
+    padding: 1em 0px 0px;
+}
+main{
+    padding: 0.2em 2em;
+}
+.event-holder{
+    background-color: hsl(207, 100%, 95%);
+    padding: 10px;
+    border-radius: 5px;
+}
+.event-holder h3{
+    font-weight: 700;
+    color: hsl(207, 100%, 10%);
+}
+.event-holder .date-holder{
+    display: flex;
+    width: 50%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+}
+.event-holder .date-holder h4{
+    flex: 1;
+    text-align: left;
+    font-weight: 500;
+}
