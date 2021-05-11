@@ -12,10 +12,14 @@
 <body>
     <section class="header">
         <section id="event-card" class="card">
-            <h3>Selected Event:</h3>
-            <h2>{{event.name}}</h2>
-            <h3>Starts On:</h3>
-            <h2>{{event.start_date}}</h2>
+            {% if event == 'no event'%}
+                <h2>Add a current event</h2>
+            {% else %}
+                <h3>Selected Event:</h3>
+                <h2>{{event.name}}</h2>
+                <h3>Starts On:</h3>
+                <h2>{{event.start_date}}</h2>
+            {% endif %}
         </section>
     </section>
 </body>

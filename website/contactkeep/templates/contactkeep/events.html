@@ -12,6 +12,32 @@
 <body>
     <main>
         <h2>Events</h2>
+        <section id="add-event">
+            <button id="btn-add-event" onclick="toggleForm()">+</button>
+            <form action="" method="post" enctype="multipart/form-data" id="form-add-event" class="disappear">
+                {% csrf_token %}
+                <label for="name">Name of Event</label>
+                <br>
+                <input type="text" value="{{event.name}}" name="name" id="id_name">
+                <br>
+                <label for="start_date">Start Date</label>
+                <br>
+                <input type="date" name="start_date" id="id_start_date" required>
+                <br>
+                <label for="end_date">End Date</label>
+                <br>
+                <input type="date" name="end_date" id="id_end_date" required>
+                <br>
+                <label for="current">Set as Current Event ?</label>
+                {% if event.current == False %}
+                    <input type="checkbox" name="current" id="id_current">
+                {% else %}
+                    <input type="checkbox" name="current" id="id_current" checked>
+                {% endif %}
+                <br>
+                <input type="submit" name="event-add" value="Add" id="submit-btn">        
+            </form>
+        </section>
         <section class="events-holder">
             {% for event in list_of_events %}
                 {% if event.current == True %}
@@ -32,4 +58,17 @@
     </main>
 </body>
 {% include 'contactkeep/snippets/footer.html' %}
+<script>
+    var addForm = document.getElementById('form-add-event');
+    var addBtn = document.getElementById('btn-add-event');
+    function toggleForm(){
+        addForm.classList.toggle("disappear");
+        if(addForm.classList.contains('disappear')){
+            addBtn.innerHTML = "+";
+        }
+        else {
+            addBtn.innerHTML = "-";
+        }
+    }
+</script>
 </html>

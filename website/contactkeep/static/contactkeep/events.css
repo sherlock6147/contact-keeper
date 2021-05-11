@@ -6,7 +6,7 @@
     font-family: 'Poppins',sans-serif;
 }
 .events-holder{
-    padding: 1em 0px 0px;
+    padding: 0.5em 0px 0px;
 }
 main{
     padding: 0.2em 2em;
@@ -27,7 +27,7 @@ main{
     flex-direction: row;
     justify-content: center;
     align-items: baseline;
-    margin: 1em 0em;
+    margin: 0.3em 0em;
 }
 .event-holder .date-holder h4{
     flex: 1;
@@ -62,4 +62,40 @@ main{
     border-radius: 50px;
     font-size: 0.9rem;
     margin-left: 1ch;
+}
+
+.disappear{
+    height: 0;
+    display: none;
+}
+
+#btn-add-event{
+    color: hsl(207, 100%, 95%);
+    background-color: indianred;
+    font-weight: 700;
+    border: none;
+    text-align: center;
+    width: 45px;
+    border-radius: 500px;
+    float: right;
+    outline: none;
+    font-size: 1.5rem;
+}
+form{
+    background-color: hsl(207, 100%, 95%);
+    padding: 1em 1.5em;
+    border-radius: 10px;
+}
+form input{
+    border-color: hsla(207, 100%, 15%,0.2);
+    padding: 0.5em;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+#submit-btn{
+    margin-top: 10px;
+    background-color: hsl(207, 100%, 65%);
+    color: hsl(207, 100%, 95%);
+    border: none;
+    font-weight: 700;
 }
