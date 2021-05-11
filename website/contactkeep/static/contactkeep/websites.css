@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+.events-holder{
+    padding: 0.5em 0px 0px;
+}
+main{
+    padding: 0.2em 2em;
+}
+@media screen and (min-width:500px) {
+    main{
+        margin: 0 20vw;
+    }    
+}
+.website-holder{
+    background-color: hsl(207, 100%, 95%);
+    padding: 1em;
+    border-radius: 5px;
+    margin: 0.5em 0px;
+}
+.website-holder h3{
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: hsl(207, 100%, 10%);
+}
+.website-holder .date-holder{
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    margin: 0.3em 0em;
+}
+.website-holder .date-holder h4{
+    flex: 1;
+    text-align: left;
+    font-weight: 500;
+}
+
+.url{
+    padding: 0.1em 0em;
+    border-radius: 100px;
+    text-decoration: none;
+    margin-top: 30px;
+    color: hsl(207, 100%, 10%);
+}
+.visit-with{
+    background-color: hsl(207, 100%, 65%);
+    color: hsl(207, 100%, 95%);
+    font-weight: 600;
+    padding: 5px 10px;
+}
+.current{
+    background-color: hsl(207, 100%, 85%);
+    padding: 1em;
+    border-radius: 5px;
+    margin: 0.5em 0px;
+}
+#current-tag{
+    background-color: indianred;
+    color: hsl(207, 100%, 99%);
+    font-weight: 600;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-left: 1ch;
+}
+
+.disappear{
+    height: 0;
+    display: none;
+}
+
+#btn-add-website{
+    color: hsl(207, 100%, 95%);
+    background-color: indianred;
+    font-weight: 700;
+    border: none;
+    text-align: center;
+    width: 45px;
+    border-radius: 500px;
+    float: right;
+    outline: none;
+    font-size: 1.5rem;
+}
+form{
+    background-color: hsl(207, 100%, 95%);
+    padding: 1em 1.5em;
+    border-radius: 10px;
+}
+form input{
+    border-color: hsla(207, 100%, 15%,0.2);
+    padding: 0.5em;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+#submit-btn{
+    margin-top: 10px;
+    background-color: hsl(207, 100%, 65%);
+    color: hsl(207, 100%, 95%);
+    border: none;
+    font-weight: 700;
+}
+#title{
+    font-weight: 400;
+}
+#title span{
+    font-weight: 700;
+}

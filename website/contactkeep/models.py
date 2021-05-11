@@ -14,8 +14,11 @@ class Event(models.Model):
 class Website(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     url = models.CharField("Link for website",max_length=250)
+    name = models.CharField("Name for website",max_length=250)
     last_visit = models.DateTimeField("last visited on",auto_now=True)
     created_on = models.DateTimeField("Created on",auto_created=True,default=timezone.now)
+    def __str__(self):
+        return self.name
 
 class Contact(models.Model):
     name = models.CharField("Name",max_length=150)

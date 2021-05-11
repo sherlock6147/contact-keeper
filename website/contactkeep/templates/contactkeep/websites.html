@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websites | ContactKeep</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'contactkeep/websites.css' %}">
+</head>
+{% include 'contactkeep/snippets/navigation.html' %}
+<body>
+    <main>
+        <h2 id="title">Websites for <span>{{event.name}}</span></h2>
+        <section id="add-website">
+            <button id="btn-add-website" onclick="toggleForm()">+</button>
+            <form action="" method="post" enctype="multipart/form-data" id="form-add-website" class="disappear">
+                {% csrf_token %}
+                <label for="name">Name for website</label>
+                <br>
+                <input type="text" value="" name="name" id="id_name">
+                <br>
+                <label for="url">url for website</label>
+                <br>
+                <input type="text" value="" name="url" id="id_url">
+                <br>
+                <input type="submit" name="website-add" value="Add" id="submit-btn">        
+            </form>
+        </section>
+        <section class="websites-holder">
+            {% for website in websites_for_event %}
+                <section class="website-holder">
+                    <h3>{{website.name}}</h3>
+                    <a href="{% url 'contactkeep:event_details' event.id %}" class="url visit-with">Visit with Contact Keeper</a>
+                    <div class="date-holder">
+                        <h4>Created on : {{website.created_on}}</h4>
+                        <h4>Last Visited on : {{website.last_visit}}</h4>
+                    </div>
+                    <a href="{{website.url}}" class="url">orignal url : {{website.url}}</a>
+                </section>    
+            {% endfor %}
+        </section>
+    </main>
+</body>
+{% include 'contactkeep/snippets/footer.html' %}
+<script>
+    var addForm = document.getElementById('form-add-website');
+    var addBtn = document.getElementById('btn-add-website');
+    function toggleForm(){
+        addForm.classList.toggle("disappear");
+        if(addForm.classList.contains('disappear')){
+            addBtn.innerHTML = "+";
+        }
+        else {
+            addBtn.innerHTML = "-";
+        }
+    }
+</script>
+</html>
