@@ -11,7 +11,7 @@
 main{
     padding: 0.2em 2em;
 }
-@media screen and (min-width:500px) {
+@media screen and (min-width:850px) {
     main{
         margin: 0 20vw;
     }    
@@ -110,4 +110,17 @@ form input{
 }
 #title span{
     font-weight: 700;
+}
+.delete-form{
+    padding: 0px;
+}
+.del-btn{
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-weight: 600;
+    border: none;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    color: hsl(207, 100%, 99%);
+    background-color: indianred;
 }

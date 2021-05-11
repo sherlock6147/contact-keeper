@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websites | ContactKeep</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'contactkeep/website_view.css' %}">
+</head>
+{% include 'contactkeep/snippets/navigation.html' %}
+<body>
+    <main>
+        <section class="websites-holder">
+            <section class="website-holder">
+                <h3>{{website.name}}</h3>
+                <div class="date-holder">
+                    <h4>Created on : {{website.created_on}}</h4>
+                    <h4>Last Visited on : {{website.last_visit}}</h4>
+                </div>
+                <a href="{{website.url}}" class="url">orignal url : {{website.url}}</a>
+                <form action="" method="post" enctype="multipart/form-data" class="delete-form">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete" class="del-btn" name="website-delete">
+                </form>
+            </section>
+            <iframe src="{{website.url}}" frameborder="0" id="website-viewer" allow="fullscreen"></iframe>
+        </section>
+    </main>
+</body>
+{% include 'contactkeep/snippets/footer.html' %}
+</html>

@@ -11,17 +11,23 @@
 main{
     padding: 0.2em 2em;
 }
-.event-holder{
+@media screen and (min-width:850px) {
+    main{
+        margin: 0 20vw;
+    }    
+}
+.website-holder{
     background-color: hsl(207, 100%, 95%);
     padding: 1em;
     border-radius: 5px;
     margin: 0.5em 0px;
 }
-.event-holder h3{
+.website-holder h3{
     font-weight: 700;
+    margin-bottom: 10px;
     color: hsl(207, 100%, 10%);
 }
-.event-holder .date-holder{
+.website-holder .date-holder{
     display: flex;
     width: 80%;
     flex-direction: row;
@@ -29,28 +35,24 @@ main{
     align-items: baseline;
     margin: 0.3em 0em;
 }
-.event-holder .date-holder h4{
+.website-holder .date-holder h4{
     flex: 1;
     text-align: left;
     font-weight: 500;
 }
-@media screen and (min-width:500px) {
-    main{
-        margin: 0 20vw;
-    }    
-}
-.edit-link{
-    padding: 0.1em 0.5em;
-    background-color: hsl(207, 100%, 69%);
+
+.url{
+    padding: 0.1em 0em;
     border-radius: 100px;
     text-decoration: none;
-    font-weight: 600;
-    color: hsl(207, 100%, 99%);
     margin-top: 30px;
+    color: hsl(207, 100%, 10%);
 }
-.read-more{
-    background-color: rgb(33, 245, 199);
-    color: hsl(167, 91%, 15%);
+.visit-with{
+    background-color: hsl(207, 100%, 65%);
+    color: hsl(207, 100%, 95%);
+    font-weight: 600;
+    padding: 5px 10px;
 }
 .current{
     background-color: hsl(207, 100%, 85%);
@@ -73,7 +75,7 @@ main{
     display: none;
 }
 
-#btn-add-event{
+#btn-add-website{
     color: hsl(207, 100%, 95%);
     background-color: indianred;
     font-weight: 700;
@@ -85,12 +87,12 @@ main{
     outline: none;
     font-size: 1.5rem;
 }
-#form-add-event{
+form{
     background-color: hsl(207, 100%, 95%);
     padding: 1em 1.5em;
     border-radius: 10px;
 }
-#form-add-event input{
+form input{
     border-color: hsla(207, 100%, 15%,0.2);
     padding: 0.5em;
     border-radius: 10px;
@@ -102,6 +104,16 @@ main{
     color: hsl(207, 100%, 95%);
     border: none;
     font-weight: 700;
+}
+#title{
+    font-weight: 400;
+}
+#title span{
+    font-weight: 700;
+}
+#website-viewer{
+    width: 100%;
+    min-height: 70vh;
 }
 .delete-form{
     padding: 0px;
