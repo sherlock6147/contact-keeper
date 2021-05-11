@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websites | ContactKeep</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'contactkeep/websites.css' %}">
+</head>
+{% include 'contactkeep/snippets/navigation.html' %}
+<body>
+    <main>
+        <h2 id="title">Websites for <span>{{event.name}}</span></h2>
+        <section id="add-website">
+            <button id="btn-add-website" onclick="toggleForm()">+</button>
+            <form action="" method="post" enctype="multipart/form-data" id="form-add-website">
+                {% csrf_token %}
+                <label for="name">Name for website</label>
+                <br>
+                <input type="text" value="{{website.name}}" name="name" id="id_name">
+                <br>
+                <label for="url">url for website</label>
+                <br>
+                <input type="text" value="{{website.url}}" name="url" id="id_url">
+                <br>
+                <input type="submit" name="edit-website" value="Save" id="submit-btn">        
+            </form>
+        </section>
+    </main>
+</body>
+{% include 'contactkeep/snippets/footer.html' %}
+</html>

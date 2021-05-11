@@ -69,24 +69,6 @@ main{
     font-size: 0.9rem;
     margin-left: 1ch;
 }
-
-.disappear{
-    height: 0;
-    display: none;
-}
-
-#btn-add-website{
-    color: hsl(207, 100%, 95%);
-    background-color: indianred;
-    font-weight: 700;
-    border: none;
-    text-align: center;
-    width: 45px;
-    border-radius: 500px;
-    float: right;
-    outline: none;
-    font-size: 1.5rem;
-}
 form{
     background-color: hsl(207, 100%, 95%);
     padding: 1em 1.5em;
@@ -104,32 +86,4 @@ form input{
     color: hsl(207, 100%, 95%);
     border: none;
     font-weight: 700;
-}
-#title{
-    font-weight: 400;
-}
-#title span{
-    font-weight: 700;
-}
-.delete-form{
-    padding: 0px;
-}
-.del-btn{
-    margin-top: 10px;
-    padding: 5px 10px;
-    font-weight: 600;
-    border: none;
-    font-size: 0.8rem;
-    border-radius: 20px;
-    color: hsl(207, 100%, 99%);
-    background-color: indianred;
-}
-.edit-link{
-    padding: 0.1em 0.5em;
-    background-color: hsl(207, 100%, 69%);
-    border-radius: 100px;
-    text-decoration: none;
-    font-weight: 600;
-    color: hsl(207, 100%, 99%);
-    margin-top: 30px;
 }

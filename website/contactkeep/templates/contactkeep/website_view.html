@@ -18,6 +18,8 @@
                     <h4>Created on : {{website.created_on}}</h4>
                     <h4>Last Visited on : {{website.last_visit}}</h4>
                 </div>
+                <a href="{% url 'contactkeep:website_edit' website.id %}" class="edit-link">Edit</a>
+                <br>
                 <a href="{{website.url}}" class="url">orignal url : {{website.url}}</a>
                 <form action="" method="post" enctype="multipart/form-data" class="delete-form">
                     {% csrf_token %}

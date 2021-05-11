@@ -134,6 +134,7 @@ def edit_website(request,website_id):
         website.url = request.POST.get('url')
         website.created_on = timezone.now()
         website.save()
+        return HttpResponseRedirect('/websites/'+str(website_id)+'/')
     context = {
         'website' : website,
     }
