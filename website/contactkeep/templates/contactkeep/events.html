@@ -52,6 +52,7 @@
                         <h4>End Date : {{event.end_date}}</h4>
                     </div>
                     <a href="{% url 'contactkeep:event_edit' event.id %}" class="edit-link">Edit</a>
+                    <a href="{% url 'contactkeep:event_details' event.id %}" class="edit-link read-more">Read More</a>
                 </section>    
             {% endfor %}
         </section>

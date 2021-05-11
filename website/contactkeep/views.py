@@ -71,3 +71,10 @@ def event_edit(request,event_id):
         'event' : event,
     }
     return render(request,'contactkeep/event_edit.html',context)
+
+def event_details(request,event_id):
+    event = get_object_or_404(Event,id=event_id)
+    context = {
+        'event' : event,
+    }
+    return render(request,'contactkeep/event_details.html',context)

@@ -44,9 +44,13 @@ main{
     background-color: hsl(207, 100%, 69%);
     border-radius: 100px;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
     color: hsl(207, 100%, 99%);
     margin-top: 30px;
+}
+.read-more{
+    background-color: rgb(33, 245, 199);
+    color: hsl(167, 91%, 15%);
 }
 .current{
     background-color: hsl(207, 100%, 85%);

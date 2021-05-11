@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | ContactKeep</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'contactkeep/events.css' %}">
+</head>
+{% include 'contactkeep/snippets/navigation.html' %}
+<body>
+    <main>
+        <section class="events-holder">
+            {% if event.current == True %}
+                <section class="event-holder current">
+                    <h3>{{event.name}}<span id="current-tag">Current</span></h3>
+            {% else %}
+                <section class="event-holder">
+                    <h3>{{event.name}}</h3>
+            {% endif %}
+                <div class="date-holder">
+                    <h4>Start Date : {{event.start_date}}</h4>
+                    <h4>End Date : {{event.end_date}}</h4>
+                </div>
+                <a href="{% url 'contactkeep:event_edit' event.id %}" class="edit-link">Edit</a>
+            </section>
+        </section>
+    </main>
+</body>
+{% include 'contactkeep/snippets/footer.html' %}
+</script>
+</html>
