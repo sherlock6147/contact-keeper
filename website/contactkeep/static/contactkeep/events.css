@@ -34,6 +34,9 @@ main{
     text-align: left;
     font-weight: 500;
 }
+.event-holder .links{
+    padding: 10px 0px;
+}
 @media screen and (min-width:500px) {
     main{
         margin: 0 20vw;
@@ -45,6 +48,7 @@ main{
     border-radius: 100px;
     text-decoration: none;
     font-weight: 600;
+    font-size: 0.8em;
     color: hsl(207, 100%, 99%);
     margin-top: 30px;
 }
@@ -62,9 +66,9 @@ main{
     background-color: indianred;
     color: hsl(207, 100%, 99%);
     font-weight: 600;
-    padding: 5px 15px;
+    padding: 5px 10px;
     border-radius: 50px;
-    font-size: 0.9rem;
+    font-size: 0.7em;
     margin-left: 1ch;
 }
 

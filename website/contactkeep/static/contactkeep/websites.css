@@ -45,12 +45,11 @@ main{
     padding: 0.1em 0em;
     border-radius: 100px;
     text-decoration: none;
-    margin-top: 30px;
     color: hsl(207, 100%, 10%);
 }
 .visit-with{
-    background-color: hsl(207, 100%, 65%);
-    color: hsl(207, 100%, 95%);
+    background-color: hsl(160, 89%, 75%);
+    color: hsl(160, 100%, 5%);
     font-weight: 600;
     padding: 5px 10px;
 }
@@ -115,11 +114,10 @@ form input{
     padding: 0px;
 }
 .del-btn{
-    margin-top: 10px;
     padding: 5px 10px;
     font-weight: 600;
     border: none;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     border-radius: 20px;
     color: hsl(207, 100%, 99%);
     background-color: indianred;
@@ -132,4 +130,15 @@ form input{
     font-weight: 600;
     color: hsl(207, 100%, 99%);
     margin-top: 30px;
+}
+.links{
+    margin: 10px 0px;
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.links li{
+    margin: 10px 10px;
 }

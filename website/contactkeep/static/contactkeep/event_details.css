@@ -47,6 +47,7 @@ main{
     font-weight: 600;
     color: hsl(207, 100%, 99%);
     margin-top: 30px;
+    font-size: 0.8em;
 }
 .read-more{
     background-color: rgb(33, 245, 199);

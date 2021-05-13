@@ -14,16 +14,21 @@
         <section class="events-holder">
             {% if event.current == True %}
                 <section class="event-holder current">
-                    <h3>{{event.name}}<span id="current-tag">Current</span></h3>
+                    <div class="top">
+                        <h3>{{event.name}}<span id="current-tag">Current</span>
+                    
             {% else %}
                 <section class="event-holder">
-                    <h3>{{event.name}}</h3>
+                    <div class="top">
+                        <h3>{{event.name}}
             {% endif %}
+                    <a href="{% url 'contactkeep:event_edit' event.id %}" class="edit-link">Edit</a>
+                    </h3>
+                </div>
                 <div class="date-holder">
                     <h4>Start Date : {{event.start_date}}</h4>
                     <h4>End Date : {{event.end_date}}</h4>
                 </div>
-                <a href="{% url 'contactkeep:event_edit' event.id %}" class="edit-link">Edit</a>
                 <form action="" method="post" enctype="multipart/form-data" class="delete-form">
                     {% csrf_token %}
                     <input type="submit" value="Delete" class="del-btn" name="event-delete">

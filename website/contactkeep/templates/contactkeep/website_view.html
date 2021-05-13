@@ -13,22 +13,36 @@
     <main>
         <section class="websites-holder">
             <section class="website-holder">
-                <h3>{{website.name}}</h3>
+                <ul class="heading">
+                    <li>
+                        <h3>{{website.name}}
+                            <a href="{% url 'contactkeep:website_edit' website.id %}" class="edit-link">Edit</a></h3>
+                    </li>
+                    <li>
+                        <form action="" method="post" enctype="multipart/form-data" class="delete-form">
+                            {% csrf_token %}
+                            <input type="submit" value="Delete" class="del-btn" name="website-delete">
+                        </form>
+                    </li>
+                </ul>
                 <div class="date-holder">
                     <h4>Created on : {{website.created_on}}</h4>
                     <h4>Last Visited on : {{website.last_visit}}</h4>
                 </div>
-                <a href="{% url 'contactkeep:website_edit' website.id %}" class="edit-link">Edit</a>
-                <br>
                 <a href="{{website.url}}" class="url">orignal url : {{website.url}}</a>
-                <form action="" method="post" enctype="multipart/form-data" class="delete-form">
-                    {% csrf_token %}
-                    <input type="submit" value="Delete" class="del-btn" name="website-delete">
-                </form>
             </section>
-            <iframe src="{{website.url}}" frameborder="0" id="website-viewer" allow="fullscreen"></iframe>
+            <iframe src="{{website.url}}" frameborder="0" id="website-viewer" allow="fullscreen" onerror="notembedable(error)"></iframe>
         </section>
     </main>
 </body>
 {% include 'contactkeep/snippets/footer.html' %}
+<script>
+    var error = document.getElementById('error-information-button');
+    var url = document.getElementById('website-viewer');
+    window.onload(function () {
+        if ('error' in url.innerHTML.toString()){
+            url.style.display='none';
+        }
+    });
+</script>
 </html>

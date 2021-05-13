@@ -31,19 +31,22 @@
             {% for website in websites_for_event %}
                 <section class="website-holder">
                     <h3>{{website.name}}</h3>
-                    <a href="{% url 'contactkeep:view_website' website.id %}" class="url visit-with">Visit with Contact Keeper</a>
                     <div class="date-holder">
                         <h4>Created on : {{website.created_on}}</h4>
                         <h4>Last Visited on : {{website.last_visit}}</h4>
                     </div>
-                    <a href="{% url 'contactkeep:website_edit' website.id %}" class="edit-link">Edit</a>
-                    <br>
                     <a href="{{website.url}}" class="url">orignal url : {{website.url}}</a>
-                    <form action="" method="post" enctype="multipart/form-data" class="delete-form">
-                        {% csrf_token %}
-                        <input type="hidden" name="website_id" value="{{website.id}}">
-                        <input type="submit" value="Delete" class="del-btn" name="website-delete">
-                    </form>
+                    <ul class="links">
+                        <li><a href="{% url 'contactkeep:view_website' website.id %}" class="url visit-with">Visit with Contact Keeper</a></li>
+                        <li><a href="{% url 'contactkeep:website_edit' website.id %}" class="edit-link">Edit</a></li>
+                        <li>
+                            <form action="" method="post" enctype="multipart/form-data" class="delete-form">
+                                {% csrf_token %}
+                                <input type="hidden" name="website_id" value="{{website.id}}">
+                                <input type="submit" value="Delete" class="del-btn" name="website-delete">
+                            </form>
+                        </li>
+                    </ul>
                 </section>    
             {% endfor %}
         </section>
