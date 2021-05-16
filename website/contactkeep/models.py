@@ -15,6 +15,7 @@ class Website(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     url = models.CharField("Link for website",max_length=250)
     name = models.CharField("Name for website",max_length=250)
+    web_cache = models.CharField("Cache of website content",max_length=100000,default='')
     last_visit = models.DateTimeField("last visited on",auto_now=True)
     created_on = models.DateTimeField("Created on",auto_created=True,default=timezone.now)
     def __str__(self):

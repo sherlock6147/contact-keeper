@@ -31,10 +31,43 @@
                 </div>
                 <a href="{{website.url}}" class="url">orignal url : {{website.url}}</a>
             </section>
-            <iframe src="{{website.url}}" frameborder="0" id="website-viewer" allow="fullscreen" onerror="notembedable(error)"></iframe>
+            <section id="info-holder">
+                <h3>Contacts found</h3>
+                {% if info_len != 0 %}
+                    <h4 style="font-weight: 400;">(Click to copy)</h4>
+                    <form action="" method="post" enctype="multipart/form-data" id="ref-form">
+                        {% csrf_token %}
+                        <input type="submit" value="Refresh" name="refresh" id="ref-btn">
+                    </form>
+                {% endif %}
+                <ul id="contacts-holder">
+                    {% if info_len != 0 %}
+                        {% for info in info_scrapped %}
+                            <li class="info-card" onclick="copyToClipboard(this)">
+                                {{info.text}}
+                            </li>
+                        {% endfor %}
+                        <center>
+                            {%if page_obj.has_previous %} {# whether the previous page exists #}
+                                <a href="?page={{page_obj.previous_page_number}}" class="paginator-btn"><</a> {# link to the prev page #}
+                            {% else %}
+                                <a href="#" class="paginator-btn disable"><</a> {# link to the prev page #}
+                            {% endif %}   
+                            {%if page_obj.has_next %} {# whether the next page exists #}
+                                <a href="?page={{page_obj.next_page_number}}" class="paginator-btn">></a> {# link to the next page #}
+                            {% else %}
+                                <a href="#" class="paginator-btn disable"><</a> {# link to the prev page #}
+                            {% endif %}
+                        </center>    
+                    {% else %}
+                        <p>No contacts found, you will have to add them manually</p>
+                    {% endif %}
+                </ul>
+            </section>
         </section>
     </main>
 </body>
+<center><div id="copied-message">Copied to Clipboard!</div></center>
 {% include 'contactkeep/snippets/footer.html' %}
 <script>
     var error = document.getElementById('error-information-button');
@@ -44,5 +77,23 @@
             url.style.display='none';
         }
     });
+
+    function copyToClipboard(element){
+        var text = element.innerText;
+        var elem = document.createElement("textarea");
+        document.body.appendChild(elem);
+        elem.value = text;
+        elem.select();
+        document.execCommand("copy");
+        document.body.removeChild(elem);
+        console.log(text);
+        var msgBox = document.getElementById('copied-message')
+        msgBox.classList.add('animate')
+        setTimeout(function(){msgBox.classList.remove('animate')},1500)
+    }
+
+    function clearMsg(){
+        var msg = "copied to clickboard";
+    }
 </script>
 </html>

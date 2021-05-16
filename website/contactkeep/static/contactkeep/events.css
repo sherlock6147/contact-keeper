@@ -111,12 +111,18 @@ main{
     padding: 0px;
 }
 .del-btn{
-    margin-top: 10px;
-    padding: 5px 10px;
+    padding: 0.1em 0.5em;
     font-weight: 600;
     border: none;
     font-size: 0.8rem;
     border-radius: 20px;
     color: hsl(207, 100%, 99%);
     background-color: indianred;
+}
+.links{
+    list-style: none;
+    display: flex;
+}
+.links li{
+    margin-right: 20px;
 }

@@ -10,11 +10,7 @@
 }
 main{
     padding: 0.2em 2em;
-}
-@media screen and (min-width:850px) {
-    main{
-        margin: 0 20vw;
-    }    
+    overflow: hidden;
 }
 .website-holder{
     background-color: hsl(207, 100%, 95%);
@@ -39,6 +35,11 @@ main{
     flex: 1;
     text-align: left;
     font-weight: 500;
+}
+@media screen and (min-width:1050px) {
+    .website-holder{
+        margin: 0 20vw;
+    }    
 }
 
 .url{
@@ -142,4 +143,61 @@ form input{
 .heading{
     display: flex;
     list-style: none;
+}
+#info-holder{
+    text-align: center;
+    padding: 20px;
+}
+#contacts-holder{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#contacts-holder li{
+    flex: 1;
+    padding: 2px 5px;
+    font-size: 0.8em;
+    background-color: hsl(226, 100%, 95%);
+    margin: 5px 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+#copied-message{
+    background-color: hsl(226, 100%, 65%);
+    color: hsl(226, 100%, 98%);
+    font-weight: 700;
+    font-size: 1em;
+    padding: 5px 10px;
+    justify-content: center;
+    margin: 10px auto;
+    width: fit-content;
+    border-radius: 25px;
+    position: fixed;
+    z-index: 9;
+    bottom: 1vh;
+    right: 1vw;
+    transform: translateY(10em);
+}
+.animate{
+    animation: popup 1.5s linear infinite;
+}
+@keyframes popup {
+    0%  {transform: translateY(10em);}
+    20% {transform: translateY(-0.5em);}
+    90% {transform: translateY(-0.5em);}
+    100% {transform: translateY(10em);}
+}
+#ref-form{
+    background: none;
+    padding: 10px 0px;
+}
+#ref-btn{
+    color: hsl(226, 100%, 98%);
+    background-color: indianred;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 5px 10px;
+    border: none;
 }
