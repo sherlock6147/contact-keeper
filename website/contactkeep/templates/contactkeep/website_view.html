@@ -34,7 +34,19 @@
             <section id="info-holder">
                 <h3>Contacts found</h3>
                 {% if info_len != 0 %}
+                    <div class="btn-holder">
+                    {% if page_obj.has_previous %} {# whether the previous page exists #}
+                        <a href="?page={{page_obj.previous_page_number}}" class="paginator-btn"><</a> {# link to the prev page #}
+                    {% else %}
+                        <a href="#" class="paginator-btn disable"><</a> {# link to the prev page #}
+                    {% endif %}
                     <h4 style="font-weight: 400;">(Click to copy)</h4>
+                    {%if page_obj.has_next %} {# whether the next page exists #}
+                        <a href="?page={{page_obj.next_page_number}}" class="paginator-btn">></a> {# link to the next page #}
+                    {% else %}
+                        <a href="#" class="paginator-btn disable">></a> {# link to the prev page #}
+                    {% endif %}
+                    </div>
                 {% endif %}
                 <ul id="contacts-holder">
                     {% if info_len != 0 %}
@@ -48,18 +60,10 @@
                     {% endif %}
                 </ul>
                 {% if info_len != 0%}
-                    <center>
-                        {% if page_obj.has_previous %} {# whether the previous page exists #}
-                            <a href="?page={{page_obj.previous_page_number}}" class="paginator-btn"><</a> {# link to the prev page #}
-                        {% else %}
-                            <a href="#" class="paginator-btn disable"><</a> {# link to the prev page #}
-                        {% endif %}
+                    <center style="margin-top: 10px;">
+                        
 
-                        {%if page_obj.has_next %} {# whether the next page exists #}
-                            <a href="?page={{page_obj.next_page_number}}" class="paginator-btn">></a> {# link to the next page #}
-                        {% else %}
-                            <a href="#" class="paginator-btn disable">></a> {# link to the prev page #}
-                        {% endif %}
+                        
                     </center>
                 {% endif %}
             </section>
