@@ -3,7 +3,8 @@ from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect, request
 from .models import *
 from django.utils import timezone
-import requests as req,html5lib,bs4
+import requests as req
+from django.core.paginator import Paginator
 # Create your views here.
 
 def home(request):
@@ -140,9 +141,22 @@ def website_view(request,website_id):
                 print("used cache")
                 data = getInfo(website.web_cache)
     website.save()
+    info_per_page = 10
+    info_count = len(data)
+    import math
+    last_page = math.ceil(info_count/info_per_page)
+    paginator_obj = Paginator(data,info_per_page)
+    page_num = request.GET.get('page')
+    try:
+        pageObj = paginator_obj.get_page(page_num)
+    except PageNotAnInteger:
+        pageObj = paginator_obj.get_page(1)
+    except EmptyPage:
+        pageObj = paginator_obj.get_page(paginator_obj.num_pages)
     context = {
         'website' : website,
-        'info_scrapped': data,
+        'info_scrapped': pageObj,
+        'page_obj':pageObj,
         'info_len': len(data),
     }
     return render(request,'contactkeep/website_view.html',context)

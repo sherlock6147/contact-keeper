@@ -201,3 +201,11 @@ form input{
     padding: 5px 10px;
     border: none;
 }
+.paginator-btn{
+    padding: 5px 10px;
+    text-decoration: none;
+    color: hsl(207, 100%, 10%);
+    border-color: hsl(207, 100%, 85%);
+    border-radius: 5px;
+    font-size: 1.2em;
+}
