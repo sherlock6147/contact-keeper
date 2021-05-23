@@ -12,4 +12,6 @@ urlpatterns = [
     path('websites/',views.websites,name="websites"),
     path('websites/<int:website_id>/',views.website_view,name="view_website"),
     path('websites/<int:website_id>/edit',views.edit_website,name="website_edit"),
+    path('contacts/',views.contacts,name="contacts"),
+    path('contacts/<int:contact_id>',views.contact_view,name="view_contact"),
 ]

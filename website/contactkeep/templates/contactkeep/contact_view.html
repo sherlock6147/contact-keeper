@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{contact.name}} | ContactKeep</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'contactkeep/contact_view.css' %}">
+</head>
+{% include 'contactkeep/snippets/navigation.html' %}
+<body>
+    <main>
+        <h2 id="title">Contacts for <span>{{event.name}}</span></h2>
+        <section class="contacts-holder">
+            <div class="contact">
+                <h3>Name : {{contact.name}}</h3>
+                <div>
+                    <form action="" method="post" enctype="multipart/form-data" class="delete-form">
+                        {% csrf_token %}
+                        <input type="hidden" name="contact_id" value="{{contact.id}}">
+                        <input type="submit" value="Delete" class="del-btn" name="contact-delete">
+                    </form>
+                </div>    
+                <ul id="contact_details">
+                    {% if phone_nos != None %}
+                        {% for phone in phone_nos %}
+                            <li>{{phone.phoneNumber}}</li>
+                        {% endfor %}
+                    {% endif %}
+                    {% if mails != None %}
+                        {% for mail in mails %}
+                            <li>{{mail.email}}</li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+{% include 'contactkeep/snippets/footer.html' %}
+</html>

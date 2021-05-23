@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+.events-holder{
+    padding: 0.5em 0px 0px;
+}
+main{
+    padding: 0.2em 2em;
+}
+@media screen and (min-width:850px) {
+    main{
+        margin: 0 20vw;
+    }    
+}
+form{
+    background-color: hsl(207, 100%, 95%);
+    padding: 1em 1.5em;
+    border-radius: 10px;
+}
+form input{
+    border-color: hsla(207, 100%, 15%,0.2);
+    padding: 0.5em;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+#submit-btn{
+    margin-top: 10px;
+    background-color: hsl(207, 100%, 65%);
+    color: hsl(207, 100%, 95%);
+    border: none;
+    font-weight: 700;
+}
+#title{
+    font-weight: 400;
+}
+#title span{
+    font-weight: 700;
+}
+.delete-form{
+    padding: 0px;
+}
+.del-btn{
+    padding: 5px 10px;
+    font-weight: 600;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    color: hsl(207, 100%, 99%);
+    background-color: indianred;
+}
+.edit-link{
+    padding: 0.1em 0.5em;
+    background-color: hsl(207, 100%, 69%);
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    color: hsl(207, 100%, 99%);
+    margin-top: 30px;
+}
+.links{
+    margin: 10px 0px;
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.links li{
+    margin: 10px 10px;
+}
+.contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    background-color: hsl(207, 100%, 90%);
+    padding: 15px;
+    border-radius: 10px;
+}
+.contact a{
+    text-decoration: none;
+    color: hsl(207, 100%, 29%);
+}
+.del-btn{
+    color: hsl(207, 100%, 95%);
+    background-color: indianred;
+    font-size: 0.9em;
+    font-weight: 600;
+}

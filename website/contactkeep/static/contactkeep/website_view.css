@@ -227,3 +227,34 @@ form input{
     background-color: hsl(207, 100%, 85%);
     cursor: not-allowed;
 }
+.add-contact{
+    padding: 1em;
+}
+#contact-form button{
+    padding: 5px 10px;
+    font-size: 0.8em;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+#contact-form input{
+    margin: 5px 0px;
+}
+.add-btn-holder{
+    margin: 10px 0px;
+}
+#add-mail,#add-phone{
+    background-color: hsl(207, 100%, 65%);
+    color: hsl(207, 100%, 95%);
+}
+.remove{
+    color: hsl(207, 100%, 95%);
+    background-color: indianred;
+    margin-left: 15px;
+}
+@media screen and (min-width:1050px) {
+    .add-contact{
+        margin: 0 20vw;
+    }
+}

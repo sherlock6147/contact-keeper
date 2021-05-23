@@ -59,13 +59,31 @@
                         <p>No contacts found, you will have to add them manually</p>
                     {% endif %}
                 </ul>
-                {% if info_len != 0%}
-                    <center style="margin-top: 10px;">
-                        
-
-                        
-                    </center>
-                {% endif %}
+            </section>
+            <section class="add-contact">
+                <form action="" method="post" enctype="multipart/form-data" id="contact-form">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="name">
+                    <div class="add-btn-holder">
+                        <button id="add-phone" onclick="addPhoneInput()" type="button">Add Phone Input</button>
+                        <button id="add-mail" onclick="addMailInput()" type="button">Add Mail</button>
+                    </div>
+                    <div id="phone-inputs" title="1">
+                        <div class="phone-input">
+                            <input type="text" name="phone_num$1" placeholder="phone number">
+                            <button class="remove" onclick="removePhoneInput()" type="button">-</button>
+                        </div>
+                    </div>
+                    <div id="mail-inputs" title="1">
+                        <div class="mail-input">
+                            <input type="text" name="email$1" placeholder="email">
+                            <button class="remove" onclick="removeMailInput()" type="button">-</button>
+                        </div>
+                    </div>
+                    <input type="submit" value="Add" name="add-contact">
+                    <input type="hidden" name="nos_phone" id="nos_phone" value="1">
+                    <input type="hidden" id="nos_mail" name="nos_mail" value="1">
+                </form>
             </section>
         </section>
     </main>
@@ -73,6 +91,11 @@
 <center><div id="copied-message">Copied to Clipboard!</div></center>
 {% include 'contactkeep/snippets/footer.html' %}
 <script>
+    var phoneInputs = document.getElementById('phone-inputs')
+    var mailInputs = document.getElementById('mail-inputs')
+    var num_phones = document.getElementById('nos_phone')
+    var num_mails = document.getElementById('nos_mail')
+    
     function copyToClipboard(element){
         var text = element.innerText;
         var elem = document.createElement("textarea");
@@ -90,5 +113,59 @@
     function clearMsg(){
         var msg = "copied to clickboard";
     }
+    
+    function addPhoneInput(){
+        console.log(phoneInputs.title);
+        var num = parseInt(phoneInputs.title);
+        num++;
+        phoneInputs.title = num.toString();
+        var result="";
+        for (let int = 1; int <= num; int++) {
+            result+='<input type="text" name="phone_num$'+int.toString()+'" placeholder="phone number"> <button class="remove" onclick="removePhoneInput()" type="button">-</button>';
+        }
+        num_phones.value = num.toString();
+        phoneInputs.innerHTML = result;
+    }
+
+    function removePhoneInput(){
+        console.log(phoneInputs.title);
+        var num = parseInt(phoneInputs.title);
+        num--;
+        phoneInputs.title = num.toString();
+        var result="";
+        for (let int = 1; int <= num; int++) {
+            result+='<input type="text" name="phone_num$'+int.toString()+'" placeholder="phone number"> <button class="remove" onclick="removePhoneInput()" type="button">-</button>';
+        }
+        num_phones.value = num.toString();
+        phoneInputs.innerHTML = result;
+    }
+
+    function addMailInput(){
+        console.log(mailInputs.title);
+        var num = parseInt(mailInputs.title);
+        num++;
+        mailInputs.title = num.toString();
+        var result="";
+        for (let int = 1; int <= num; int++) {
+            result+='<div class="mail-input"><input type="text" name="email$'+int.toString()+'" placeholder="email"><button class="remove" onclick="removeMailInput()" type="button">-</button></div>';
+        }
+        num_mails.value = num.toString();
+        mailInputs.innerHTML = result;
+    }
+
+    function removeMailInput(){
+        console.log(mailInputs.title);
+        var num = parseInt(mailInputs.title);
+        num--;
+        mailInputs.title = num.toString();
+        var result="";
+        for (let int = 1; int <= num; int++) {
+            result+='<div class="mail-input"><input type="text" name="email$'+int.toString()+'" placeholder="email"><button class="remove" onclick="removeMailInput()" type="button">-</button></div>';
+        }
+        num_mails.value = num.toString();
+        mailInputs.innerHTML = result;
+    }
+
+    
 </script>
 </html>

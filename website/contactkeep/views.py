@@ -1,4 +1,5 @@
 from datetime import datetime
+import re
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect, request
 from .models import *
@@ -140,6 +141,30 @@ def website_view(request,website_id):
             else:
                 print("used cache")
                 data = getInfo(website.web_cache)
+    print("hello 1")
+    if 'add-contact' in request.POST:
+        contact = Contact()
+        phone_nos = int(request.POST.get('nos_phone'))
+        mail_nos = int(request.POST.get('nos_mail'))
+        index = 1
+        contact.name = request.POST.get('name')
+        contact.event = website.event
+        contact.website = website
+        contact.save()
+        print("hello 2")
+        while index <= phone_nos:
+            phone_number = PhoneNumber()
+            phone_number.contact = contact
+            phone_number.phoneNumber = request.POST.get('phone_num$'+str(index))
+            phone_number.save()
+            index+=1
+        index = 1
+        while index <= mail_nos:
+            mail_id = Email()
+            mail_id.contact = contact
+            mail_id.email = request.POST.get('email$'+str(index))
+            mail_id.save()
+            index+=1
     website.save()
     info_per_page = 10
     info_count = len(data)
@@ -212,3 +237,44 @@ def edit_website(request,website_id):
         'website' : website,
     }
     return render(request,'contactkeep/edit_website.html',context)
+
+def contacts(request):
+    current_event = Event.objects.filter(current=True)
+    if 'contact-delete' in request.POST:
+        contact_id = request.POST.get('contact_id')
+        delete_contact(request,contact_id)
+    if(current_event.count()!=0):
+        current_event = current_event[0]
+        websites_for_event = Website.objects.filter(event=current_event).order_by('-last_visit')
+    else:
+        websites_for_event = "no event selected"
+    contacts = Contact.objects.filter(event=current_event)
+    context = {
+        'contacts':contacts,
+        'event':current_event,
+    }
+    return render(request,'contactkeep/contacts.html',context)
+
+def contact_view(request,contact_id):
+    contact = get_object_or_404(Contact,id=contact_id)
+    if 'contact-delete' in request.POST:
+        contact_id = request.POST.get('contact_id')
+        delete_contact(request,contact_id)
+    phone_nos = PhoneNumber.objects.filter(contact=contact)
+    if(phone_nos.count()==0):
+        phone_nos=None
+    mails = Email.objects.filter(contact=contact)
+    if(mails.count()==0):
+        mails=None
+    context = {
+        'contact':contact,
+        'phone_nos': phone_nos,
+        'mails':mails,
+    }
+    print(context)
+    return render(request,'contactkeep/contact_view.html',context)
+
+def delete_contact(request,contact_id):
+    contact = get_object_or_404(Contact,id=contact_id)
+    contact.delete()
+    return HttpResponseRedirect('/contacts/')

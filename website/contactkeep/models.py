@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.query_utils import select_related_descend
 from django.utils import timezone
 
 # Create your models here.
@@ -24,11 +25,19 @@ class Website(models.Model):
 class Contact(models.Model):
     name = models.CharField("Name",max_length=150)
     last_save = models.DateTimeField("Last saved on",auto_now=True)
+    event = models.ForeignKey(Event,on_delete=models.CASCADE)
+    website = models.ForeignKey(Website,on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
 
 class PhoneNumber(models.Model):
     phoneNumber = models.CharField("Phone No.",max_length=20)
     contact = models.ForeignKey(Contact, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.phoneNumber
 
 class Email(models.Model):
     email = models.CharField("Email",max_length=100)
     contact = models.ForeignKey(Contact, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.email
